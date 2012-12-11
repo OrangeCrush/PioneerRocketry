@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>TeamRocket</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag "styles" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Racing+Sans+One' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div id="container">
+	<div id="inner-container">
+        <div id="header">
+           <!-- <h1><a href="/"><span style="font-family: 'Racing Sans One', cursive;">Pioneer Rocketry</span></a></h1>-->
+           <%= image_tag('rocket1a.png', :alt => 'Pioneer Rocketry') %>
+            <div id="logo">
+            <a href="http://www.uwplatt.edu" alt="UW-Platteville"><%=image_tag("logo.png", :alt => "UW-Platteville") %></a>
+         </div>
+            <div class="clear"></div>
+        </div>
+        <div id="nav">
+            <ul>
+               <li><%= link_to 'home', :root %></li>
+                <li><a href="http://www.uwplatt.edu/org/sps/">SPS Home</a></li>
+                <li><%=link_to 'Members', members_path %></li>
+                <li><a href="http://www.uwgb.edu/WSGC/default.aspx">WI Space Grant</a></li>
+                <li><a href="#">Contact</a></li>
+                <%if user_signed_in? %>
+                   <li><%=link_to 'Logout', destroy_user_session_path, :method => :delete%></li>
+                <%end%>
+                <%if !user_signed_in? %>
+                  <li><%=link_to 'Login',new_user_session_path%></li>
+                  <li><%=link_to 'Join',new_user_registration_path %></li>
+                <%end%>
+            </ul>
+        </div>
+<div id="body">
+   <div id="content">
+<%= yield %>
+   </div>
+         <div class="sidebar">
+            <ul>	
+               <li>
+               <h4><span>Actions</span></h4>
+               <ul class="blocklist">
+                  <li><a href="index.html">View Posts</a></li>
+                  <% if user_signed_in? %>
+                  <li><%=link_to 'View Members', members_path %></li>
+                  <li><%=link_to 'Write a Post', new_post_path%></li>
+                  <% end %>
+                  <li><a href="">WI Space Grant</a></li>
+                  <li><a href="http://uwplatt.edu">UW-Platteville</a></li>
+                  <li><a href="">Contact</a></li>
+               </ul>
+               </li>
+
+               <li>
+               <h4>About Pioneer Rocketry</h4>
+               <ul>
+                  <li>
+                  <p style="margin: 0;">Pioneer Rocketry was started in 2012 and is a branch of the University of Wisconsin Platteville's SPS chapter.</p>
+                  </li>
+               </ul>
+               </li>
+            </ul> 
+         </div>
+         <div class="clear"></div>
+      </div>
+   </div>
+</div>
+</div> <!-- inner container-->
+</div> <!-- container-->
+<div id="footer">
+    <div class="footer-width footer-bottom">
+        <p>&copy; Pioneer Rocketry 2012.</p>
+     </div>
+</div>
+</body>
+</html>

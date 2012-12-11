@@ -1,0 +1,25 @@
+<div id="content">
+   <div id="signup">
+      <h2>Register an Account</h2>
+
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+         <%= devise_error_messages! %>
+
+      <table>
+         <tr>
+            <td><%= f.label :email %> </td>
+            <td> <%= f.email_field :email %></td>
+         </tr>
+         <tr>
+            <td><%= f.label :password %></td>
+            <td><%= f.password_field :password %></td>
+         </tr>
+         <tr>
+            <td><%= f.label :password_confirmation %></td>
+            <td><%= f.password_field :password_confirmation %></td>
+         </tr>
+      </table>
+      <%= f.submit "Create Account" %>
+   <% end %>
+   </div> <!--signup -->
+</div><!--content-->
