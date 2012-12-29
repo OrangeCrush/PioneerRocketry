@@ -1,6 +1,7 @@
-<div id="content">
-   <h2>The Launchpad</h2>       
+<h2>Pioneer Rocketry Members</h2></br>
+<b> There <%= @users.size > 1 ? 'are' : 'is' %> currently <%= @users.size %> member<%=@users.size > 1 ? 's' : nil %> signed up.</b>
+<ol>
    <% @users.each do |user|  %>
-      <%= user.email %>
-   <% end %>
-</div>
+      <li> <%= user.email %><li>
+<% end %>
+</ol>

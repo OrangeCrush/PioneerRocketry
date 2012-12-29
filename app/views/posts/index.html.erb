@@ -1,7 +1,7 @@
       <h2>The Launchpad</h2> </br>      
       <% @posts.each do |post|  %>
          <h2><%= post.title %></h2></br>
-         <% if !post.image.nil? %>
+         <% if post.image != '' %>
             <%= image_tag post.image %></br>
          <% end %>
          <p><%= post.body %></p></br>
