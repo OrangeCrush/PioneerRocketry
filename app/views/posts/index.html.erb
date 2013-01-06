@@ -1,9 +1,17 @@
-      <h2>The Launchpad</h2> </br>      
-      <% @posts.each do |post|  %>
-         <h2><%= post.title %></h2></br>
-         <% if post.image != '' %>
-            <%= image_tag post.image %></br>
-         <% end %>
-         <p><%= post.body %></p></br>
-         <p>Posted on: <b><%= post.created_at.strftime("%m/%d/%Y")%> </b></p>
-      <% end %>
+<h2>The Launchpad</h2> </br>      
+<% @posts.each do |post|  %>
+   <h2><%= post.title %></h2></br>
+   <% if post.image != '' %>
+      <div id="postImg">
+      <%= image_tag post.image %></br>
+      </div>
+   <% end %>
+<p><%= post.body %></p></br>
+<p>Posted on: <b><%= post.created_at.strftime("%m/%d/%Y")%> </b></p></br>
+<p>Posted by: <b><%= post.posted_by %> </b></p>
+   <% if user_signed_in? &&  ['ADMIN'].include?(current_user.role) %>
+      <%=link_to 'Edit Post', { :controller => 'posts', :action => 'edit', :id => post.id }%>
+   <% end %>
+<% end %>
+
+<%=link_to 'Posts Archive', { :controller => 'posts', :action => 'archive' }%>

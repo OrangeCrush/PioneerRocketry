@@ -196,6 +196,12 @@ li ol, li ul {
    height:auto;
 }
 
+#postImg img {
+   padding-left:0px;
+   width:100%;
+   height:auto;
+}
+
 #logo {
    float: right;
 }
@@ -242,7 +248,7 @@ li ol, li ul {
 #nav ul li a {
    color: #ddd;
    display: block;
-   border-right: 1px solid #4401A2;
+   border-right: 1px solid #FFFFFF;
    font-size: 16px;
    font-weight: bold;
    text-transform: uppercase;

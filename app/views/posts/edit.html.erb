@@ -1,0 +1,11 @@
+<%= form_for @post do |form| %>
+   </ br>
+   <p>Title of post:  </p><%= form.text_field :title, :size => 60 %> 
+   </ br>
+   <p>Body:  </p> <%= form.text_area :body, :cols => 55, :rows => 20 %>
+   </ br>
+   <p>Image url:  </p> <%= form.text_field :image, :size => 60 %>
+   </ br>
+   <p>Visible to Public:  </p> <%= form.check_box :public %>
+   <p>Submit:  </p><%= form.submit %>
+<% end %>

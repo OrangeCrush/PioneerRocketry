@@ -33,7 +33,7 @@
             <li><a href="http://www.uwplatt.edu/org/sps/">SPS Home</a></li>
             <li><%=link_to 'Members', members_path %></li>
             <li><a href="http://www.uwgb.edu/WSGC/default.aspx">WI Space Grant</a></li>
-            <li><a href="#">Photo Gallery</a></li>
+            <li><%=link_to 'Photo Gallery',"http://www.photobucket.com/primages" %></li>
             <li><a href="#">Contact</a></li>
             <%if user_signed_in? %>
                <li><%=link_to 'Logout', destroy_user_session_path, :method => :delete%></li>
@@ -50,20 +50,20 @@
          </div>
          <div class="sidebar">
             <ul>	
+               <% if user_signed_in? %>
                <li>
                <h4><span>Actions</span></h4>
                <ul class="blocklist">
-                  <li><a href="index.html">View Posts</a></li>
-                  <% if user_signed_in? %>
+                  <li><a href="posts">View Posts</a></li>
                      <li><%=link_to 'View Members', members_path %></li>
-                  <li><%=link_to 'Write a Post', new_post_path%></li>
-               <% end %>
-                  <li><a href="">WI Space Grant</a></li>
-                  <li><a href="http://uwplatt.edu">UW-Platteville</a></li>
-                  <li><a href="">Contact</a></li>
+                   <% if ['ADMIN'].include?(current_user.role)  %>
+                     <li><%=link_to 'Control Panel', members_path %></li>
+                     <li><%=link_to 'Write a Post', new_post_path%></li>
+                  <% end %>
                </ul>
                </li>
 
+               <% end %>
                <li>
                <h4>About Pioneer Rocketry</h4>
                <ul>

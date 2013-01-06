@@ -1,7 +1,16 @@
 <h2>Pioneer Rocketry Members</h2></br>
 <b> There <%= @users.size > 1 ? 'are' : 'is' %> currently <%= @users.size %> member<%=@users.size > 1 ? 's' : nil %> signed up.</b>
-<ol>
+<% admin_and_signed_in = user_signed_in? && ['ADMIN'].include?(current_user.role)%>
+<table>
+   <tr>
+      <td>Email</td> <td> Joined </td> <% if admin_and_signed_in %> <td> Role </td><% end %>
+   </tr>
    <% @users.each do |user|  %>
-      <li> <%= user.email %><li>
+      <tr>
+         <td><%= user.email %></td> <td><%= user.created_at.strftime("%m/%d/%Y")%></td> 
+         <% if admin_and_signed_in %>
+            <td><%= user.role.nil?  ? link_to( 'Change Role', { :controller => 'members', :action => 'edit', :id => user.id}) : user.role  %></td>
+      <% end%>
+    </tr>
 <% end %>
-</ol>
+</table>
