@@ -1,12 +1,93 @@
-<h2>Write a Post</h2>
+<h2><span style="font-size:32px;">Write a Post</span></h2>
+<hr></hr></br>
 <%= form_for @post do |form| %>
-   </ br>
-   <p>Title of post:  </p><%= form.text_field :title, :size => 60 %> 
-   </ br>
-   <p>Body:  </p> <%= form.text_area :body, :cols => 55, :rows => 20 %>
-   </ br>
-   <p>Image url:  </p> <%= form.text_field :image, :size => 60 %>
-   </ br>
-   <p>Visible to Public:  </p> <%= form.check_box :public %>
-   <p>Submit:  </p><%= form.submit %>
+   <table>
+   <tr>
+      <td>
+         <p>Title of post:</p>
+      </td>
+      <td>
+         <%= form.text_field :title, :size => 60 %> 
+      </td>
+   </tr>
+   <tr>
+      <td>
+         <p>Body:</p> 
+      </td>
+      <td>
+         <%= form.text_area :body, :cols => 61, :rows => 20 %>
+      </td>
+   </tr>
+   <tr>
+      <td>
+         <div class="imgstuff">
+            <p>Image url:</p> 
+         </div>
+      </td>
+      <td>
+         <div class="imgstuff">
+            <%= form.text_field :image, :size => 60 %>
+         </div>
+      </td>
+   </tr>
+   <tr>
+      <td>
+      </td>
+      <td>
+         <div id ="image" class="notify">
+            <p>Copy the &#34Direct Link&#34 field from our <%= link_to 'photobucket page', 'http://www.photobucket.com/primages' %></p>
+            <div class="postImg">
+               <img id="previewImg" src="" alt="Please Enter a valid image url."></img>
+            </div>
+            <input id="vidInstead" type="button" value="Post Video Instead?"/>
+         </div> <!-- image -->
+      </td>
+   </tr>
+   <tr>
+      <td>
+         <div class="ytstuff">
+            <p>Youtube url:</p> 
+         </div>
+      </td>
+      <td>
+      <div class="ytstuff">
+         <%= form.text_field :video, :size => 60 %>
+      </div>
+      </td>
+   </tr>
+   <tr>
+      <td>
+      </td>
+      <td>
+         <div id ="video" class="notify"> 
+            <p>Copy the &#34Direct Link&#34 field from our <%= link_to 'photobucket page', 'http://www.photobucket.com/primages' %></p>
+            <embed id="previewVideo" alt="Please enter a video"  width="600" height="361" type="application/x-shockwave-flash" allowFullscreen="true" allowNetworking="all" wmode="transparent" src=""> </br>
+            <input id="imgInstead" type="button" value="Post Image Instead?"/>
+         </div>
+      </td>
+   </tr>
+   <tr>
+      <td>
+         <p>Visible to Public?</p> 
+      </td>
+      <td>
+         <%= form.check_box :public %>
+      </td>
+   </tr>
+   <tr>
+      <td>
+      </td>
+      <td>
+         <div id ="publichelp" class="help"></div>
+      </td>
+   </tr>
+   <tr>
+      <td>
+         <p>Submit:</p>
+      </td>
+      <td>
+         <%= form.submit :id => "submit"%>
+      </td>
+   </tr>
+</table>
 <% end %>

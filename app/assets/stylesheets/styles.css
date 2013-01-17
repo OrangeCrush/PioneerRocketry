@@ -55,16 +55,6 @@ p {
    font-size: 12px;
 }
 
-a {
-   color: #4F00BD;
-}
-
-a:hover {
-}
-
-a:focus {
-   outline: none;
-}
 
 fieldset {
    display: block;
@@ -196,7 +186,7 @@ li ol, li ul {
    height:auto;
 }
 
-#postImg img {
+.postImg img {
    padding-left:0px;
    width:100%;
    height:auto;
@@ -402,4 +392,14 @@ li ol, li ul {
    font-size: 12px;
 }
 
+textarea {
+   resize: none;
+}
 
+.help {
+   color: red;
+}
+
+.notify{
+   color: blue;
+}

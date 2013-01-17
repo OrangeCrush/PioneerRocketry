@@ -4,7 +4,7 @@
 <% @posts.each do |post|  %>
    <h2><%= post.title %></h2></br>
    <% if post.image != '' %>
-      <div id="postImg">
+      <div class="postImg">
       <%= image_tag post.image %></br>
       </div>
    <% end %>
