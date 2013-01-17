@@ -1,12 +1,19 @@
 TeamRocket::Application.routes.draw do
-  resources :posts
-  devise_for :users #, :controllers => { :sessions => "users/sessions" } 
+   resources :posts do
+      collection do 
+         get :archive 
+         get :delete
+         get :edit
+      end
+   end
 
-  get "home/index"
-  get "/members/" => "members#index"
-  get "/members/index" => "members#index"
-  get "/posts/show" => "posts#index"
+   get "home/index"
+   get "/members/" => "members#index"
+   get "/members/index" => "members#index"
+   get "/posts/archive" => "posts#archive"
+   get "/members/edit" => "members#edit"
+   get "/contact" => "pagehandle#contact"
 
-
-  root :to => "posts#index"
+   devise_for :users 
+   root :to => "posts#index"
 end

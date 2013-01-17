@@ -1,16 +1,19 @@
-<h2>Pioneer Rocketry Members</h2></br>
-<b> There <%= @users.size > 1 ? 'are' : 'is' %> currently <%= @users.size %> member<%=@users.size > 1 ? 's' : nil %> signed up.</b>
+<h2><span style="font-size:32px;">Pioneer Rocketry Members</span></h2>
+<hr></hr></br>
+<b> There <%= @users.size - 1 > 1 ? 'are' : 'is' %> currently <%= @users.size - 1 %> member<%=@users.size - 1 > 1 ? 's' : nil %> signed up.</b>
 <% admin_and_signed_in = user_signed_in? && ['ADMIN'].include?(current_user.role)%>
 <table>
    <tr>
-      <td>Email</td> <td> Joined </td> <% if admin_and_signed_in %> <td> Role </td><% end %>
+      <td>Email</td> <td> Joined </td> <% if admin_and_signed_in %> <td> Last Sign In </td><% end %>
    </tr>
    <% @users.each do |user|  %>
+      <% if user.email != 'pr_admin@uwplatt.edu' %>
       <tr>
          <td><%= user.email %></td> <td><%= user.created_at.strftime("%m/%d/%Y")%></td> 
          <% if admin_and_signed_in %>
-            <td><%= user.role.nil?  ? link_to( 'Change Role', { :controller => 'members', :action => 'edit', :id => user.id}) : user.role  %></td>
+            <td><%= user.last_sign_in_at.strftime("%m/%d/%Y")%></td>
+         <% end%>
       <% end%>
     </tr>
-<% end %>
+   <% end %>
 </table>

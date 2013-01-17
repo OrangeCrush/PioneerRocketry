@@ -1,4 +1,6 @@
-<h2>The Launchpad</h2> </br>      
+<h2><span style="font-size:32px;">The Launchpad</span></h2> 
+<hr></hr>
+</br>      
 <% @posts.each do |post|  %>
    <h2><%= post.title %></h2></br>
    <% if post.image != '' %>
@@ -11,6 +13,7 @@
 <p>Posted by: <b><%= post.posted_by %> </b></p>
    <% if user_signed_in? &&  ['ADMIN'].include?(current_user.role) %>
       <%=link_to 'Edit Post', { :controller => 'posts', :action => 'edit', :id => post.id }%>
+      <%=link_to 'Delete Post', { :controller => 'posts', :action => 'delete', :id => post.id }%>
    <% end %>
 <% end %>
 

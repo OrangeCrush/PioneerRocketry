@@ -58,4 +58,11 @@ class PostsController < ApplicationController
       end
    end
 
+   def delete
+      if ['ADMIN'].include?(current_user.role)
+         Post.find(params[:id]).destroy
+         redirect_to posts_path
+      end
+   end
+
 end

@@ -33,8 +33,8 @@
             <li><a href="http://www.uwplatt.edu/org/sps/">SPS Home</a></li>
             <li><%=link_to 'Members', members_path %></li>
             <li><a href="http://www.uwgb.edu/WSGC/default.aspx">WI Space Grant</a></li>
-            <li><%=link_to 'Photo Gallery',"http://www.photobucket.com/primages" %></li>
-            <li><a href="#">Contact</a></li>
+            <li><%= link_to 'Photo Gallery',"http://www.photobucket.com/primages" %></li>
+            <li><%= link_to 'Contact', '/contact' %></li>
             <%if user_signed_in? %>
                <li><%=link_to 'Logout', destroy_user_session_path, :method => :delete%></li>
          <%end%>
@@ -54,10 +54,10 @@
                <li>
                <h4><span>Actions</span></h4>
                <ul class="blocklist">
-                  <li><a href="posts">View Posts</a></li>
+                  <li><%=link_to "View Posts", posts_path%></li>
+                     <li><%=link_to "Change your password", edit_user_registration_path%></li>
                      <li><%=link_to 'View Members', members_path %></li>
                    <% if ['ADMIN'].include?(current_user.role)  %>
-                     <li><%=link_to 'Control Panel', members_path %></li>
                      <li><%=link_to 'Write a Post', new_post_path%></li>
                   <% end %>
                </ul>
