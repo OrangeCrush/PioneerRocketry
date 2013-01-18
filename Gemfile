@@ -19,11 +19,12 @@ gem 'jquery-rails'
 #added for PR
 gem 'therubyracer'
 gem 'devise'
-gem 'sqlite3', :group => [:development, :test]
-group :production do
-   gem 'thin'
-   gem 'pg'
-end
+gem 'pg'
+#gem 'sqlite3', :group => [:development, :test]
+#group :production do
+#   gem 'thin'
+#   gem 'pg'
+#end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
