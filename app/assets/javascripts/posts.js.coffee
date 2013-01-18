@@ -36,16 +36,9 @@ $ ->
       else if(!$('#post_image').val())
          $('#previewImg').attr('alt', "Please enter a valid image")
 
-
-   $('#post_video').change ->
-      if(!!$('#post_video').val())
-         $('#previewVideo').attr('src', $('#post_video').val())
-      else if(!$('#post_video').val())
-         $('#previewVideo').attr('alt', "Please enter a valid video")
-
    $('#vidInstead').click ->
       $('.ytstuff').show('slow')
-      $('#visdeo').show('slow')
+      $('#video').show('slow')
       $('#image').hide('slow')
       $('.imgstuff').hide('slow')
 

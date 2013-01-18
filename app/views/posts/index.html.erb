@@ -1,6 +1,7 @@
 <h2><span style="font-size:32px;">The Launchpad</span> </h2> 
 <hr><%=link_to 'Posts Archive', { :controller => 'posts', :action => 'archive' }%></hr>
 </br>      
+</br>      
 <% @posts.each do |post|  %>
    <h2><%= post.title %></h2></br>
 <% if post.image != '' %>
