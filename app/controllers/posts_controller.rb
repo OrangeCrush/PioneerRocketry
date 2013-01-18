@@ -7,7 +7,7 @@ class PostsController < ApplicationController
    def index
       if user_signed_in? 
          temp = Post.all.sort{|a,b| b.created_at <=> a.created_at }[0..3]
-         if temp.select{|x| x.image != ''}.size > 2
+         if temp.select{|x| x.image != '' || x.video != ''}.size > 2
             limit = 2
          else
             limit = 3
@@ -15,7 +15,7 @@ class PostsController < ApplicationController
          @posts = Post.all.sort{|a,b| b.created_at <=> a.created_at }[0..limit] 
       else
          temp = Post.where(:public => true).sort{|a,b| b.created_at <=> a.created_at }[0..3]
-         if temp.select{|x| x.image != ''}.size > 2
+         if temp.select{|x| x.image != '' || x.video != ''}.size > 2
             limit = 2
          else
             limit = 3

@@ -17,12 +17,12 @@ $ ->
    $('#post_image').click ->
       $('#image').show('slow')
       $('#video').hide('slow')
-      $('.imgstuff').hide('slow')
+      $('.ytstuff').hide('slow')
 
    $('#post_video').click ->
       $('#video').show('slow')
       $('#image').hide('slow')
-      $('.ytstuff').hide('slow')
+      $('.imgstuff').hide('slow')
 
    $('#post_public').click ->
      if($('#post_public').is(':checked'))
@@ -45,7 +45,7 @@ $ ->
 
    $('#vidInstead').click ->
       $('.ytstuff').show('slow')
-      $('#video').show('slow')
+      $('#visdeo').show('slow')
       $('#image').hide('slow')
       $('.imgstuff').hide('slow')
 
