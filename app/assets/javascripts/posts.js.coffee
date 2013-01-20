@@ -48,3 +48,6 @@ $ ->
       $('#video').hide('slow')
       $('#image').show('slow')
       $('.imgstuff').show('slow')
+
+   $('.deletePost').click ->
+      confirm("Really delete post?")
