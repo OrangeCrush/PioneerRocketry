@@ -172,7 +172,7 @@ li ol, li ul {
    /*	background: transparent url('images/header.jpg') no-repeat;*/
    background-color:#F57B22;
    padding: 20px;
-   width: 940px;
+   width: 1050px;
 }
 
 #header {
@@ -223,14 +223,14 @@ li ol, li ul {
 
 #nav {
    height: 45px;
-   width: 942px;
+   width: 1050px;
    background-color: #001F4E;
 }
 
 #nav ul {
    list-style: none;
+   margin:0px;
    padding: 0;
-   margin: 0;
    height: 45px;
 }
 
@@ -261,7 +261,7 @@ li ol, li ul {
    background: none;
    margin:0 auto;
    padding: 9px;
-   width: 918px;
+   width: 1050;
    background-color: #fff;
    border-color:#001F4E;
    border-style:solid;
